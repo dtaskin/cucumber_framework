@@ -1,8 +1,8 @@
 @Regression @HeroApp
 Feature: HeroApp Functionalities
 
+
   Scenario: Validate add/remove element page
-    #We have the same Given in the google.feature so no need to implement again
     Given user navigates to "http://the-internet.herokuapp.com/"
     When user clicks on "Add/Remove Elements" link
     Then user should see "Add/Remove Elements" heading

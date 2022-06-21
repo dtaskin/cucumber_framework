@@ -1,5 +1,5 @@
 @Google
-  #Each feature file mush hava a feature name
+  #Each feature file must have a feature name
   #To declare all scenarios in the feature file with a tag, we can put on the top of feature
 
 Feature: Google Search Functionality

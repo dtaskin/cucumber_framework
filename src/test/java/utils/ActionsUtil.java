@@ -1,6 +1,5 @@
-package utilities;
+package utils;
 
-import cucumber.api.java.bs.A;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 

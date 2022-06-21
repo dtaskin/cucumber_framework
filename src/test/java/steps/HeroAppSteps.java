@@ -9,10 +9,9 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import pages.HeroAppPage;
-import utilities.ActionsUtil;
-import utilities.AlertHandler;
-import utilities.Driver;
-import utilities.Waiter;
+import utils.ActionsUtil;
+import utils.AlertHandler;
+import utils.Driver;
 
 public class HeroAppSteps {
 
@@ -32,7 +31,7 @@ public class HeroAppSteps {
 
     @Then("user should see {string} heading")
     public void userShouldSeeHeading(String headingText) {
-        switch (headingText){
+        switch (headingText) {
             case "Add/Remove Elements":
                 Assert.assertTrue(heroAppPage.addRemoveHeading3.isDisplayed());
                 Assert.assertEquals(headingText, heroAppPage.addRemoveHeading3.getText());
@@ -66,12 +65,15 @@ public class HeroAppSteps {
 
     @When("user clicks on {string} button")
     public void userClicksOnButton(String buttonText) {
-        switch (buttonText){
+        switch (buttonText) {
             case "Add Element":
                 heroAppPage.addElementButton.click();
                 break;
             case "Delete":
                 heroAppPage.deleteElementButton.click();
+                break;
+            case "Login":
+                heroAppPage.loginButton.click();
                 break;
             default:
                 throw new NotFoundException("The button text is not defined properly in the feature file!!!");
@@ -80,12 +82,11 @@ public class HeroAppSteps {
 
     @Then("user should not see {string} button")
     public void userShouldNotSeeButton(String buttonText) {
-        switch (buttonText){
+        switch (buttonText) {
             case "Delete":
-                try{
+                try {
                     Assert.assertFalse(heroAppPage.deleteElementButton.isDisplayed());
-                }
-                catch (NoSuchElementException e){
+                } catch (NoSuchElementException e) {
                     //e.printStackTrace();
                     Assert.assertTrue(true);
                 }
@@ -98,7 +99,7 @@ public class HeroAppSteps {
 
     @And("user should see {string} text")
     public void userShouldSeeText(String paragraphText) {
-        switch (paragraphText){
+        switch (paragraphText) {
             case "Context menu items are custom additions that appear in the right-click menu.":
                 Assert.assertTrue(heroAppPage.contextMenuParagraph1.isDisplayed());
                 Assert.assertEquals(paragraphText, heroAppPage.contextMenuParagraph1.getText());
@@ -126,5 +127,17 @@ public class HeroAppSteps {
     public void userShouldSeeAPopupDisplayingMessage(String alertText) {
         Assert.assertEquals(alertText, AlertHandler.getAlertSText(driver));
         AlertHandler.dismissAlert(driver);
+    }
+
+    @When("user enters username as {string} and password as {string}")
+    public void user_enters_username_as_and_password_as(String username, String password) {
+        heroAppPage.usernameInputBox.sendKeys(username);
+        heroAppPage.passwordInputBox.sendKeys(password);
+    }
+
+    @Then("user should see a message starts with {string}")
+    public void user_should_see_a_message_starts_with(String errorMessage) {
+        System.out.println("=======actual error message======= " + heroAppPage.loginErrorMessage.getText());
+        Assert.assertTrue(heroAppPage.loginErrorMessage.getText().startsWith(errorMessage));
     }
 }

@@ -1,6 +1,5 @@
 package runners;
 
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
@@ -9,11 +8,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "steps",
-        tags = "@Regression",
+        tags = "@Wiki",
         dryRun = false,
-        monochrome = false
+        monochrome = false,
+        plugin = "html:target/cucumber-reports"
 )
 
 public class Runner {
-
 }

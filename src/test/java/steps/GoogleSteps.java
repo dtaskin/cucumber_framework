@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import pages.GoogleSearchPage;
-import utilities.Driver;
+import utils.Driver;
 
 public class GoogleSteps {
 
@@ -25,16 +25,6 @@ public class GoogleSteps {
     public void user_searches_for_on_Google(String key) {
         //driver.findElement(By.name("q")).sendKeys(key + Keys.ENTER);
         googleSearchPage.searchInputBox.sendKeys(key + Keys.ENTER);
-    }
-
-    @Then("user should see {string} in the url")
-    public void user_should_see_in_the_url(String key) {
-        Assert.assertTrue(driver.getCurrentUrl().contains(key));
-    }
-
-    @Then("user should see {string} in the title")
-    public void user_should_see_in_the_title(String key) {
-        Assert.assertTrue(driver.getTitle().contains(key));
     }
 
 

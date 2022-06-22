@@ -1,6 +1,6 @@
+@Regression
 Feature: Wiki Search Functionality
 
-  @Wiki
     #IF you want to run same script multiple times, we use scenario outline
   Scenario Outline: Validate Wiki Search
     Given user navigates to "https://www.wikipedia.org/"

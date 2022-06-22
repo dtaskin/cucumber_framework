@@ -1,38 +1,30 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/resources/features/wikipedia.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/resources/features/heroAppLogin.feature");
 formatter.feature({
-  "name": "Wiki Search Functionality",
+  "name": "Hero App Login Functionality",
   "description": "",
-  "keyword": "Feature"
-});
-formatter.scenarioOutline({
-  "name": "Validate Wiki Search",
-  "description": "",
-  "keyword": "Scenario Outline",
+  "keyword": "Feature",
   "tags": [
     {
-      "name": "@Wiki"
+      "name": "@Login"
     }
   ]
 });
-formatter.step({
-  "name": "user navigates to \"https://www.wikipedia.org/\"",
-  "keyword": "Given "
+formatter.scenarioOutline({
+  "name": "Validate form authentication page",
+  "description": "",
+  "keyword": "Scenario Outline"
 });
 formatter.step({
-  "name": "user searches for \"\u003ckey\u003e\" on Wikipedia",
-  "keyword": "When "
+  "name": "user enters username as \"\u003cusername\u003e\" and password as \"\u003cpassword\u003e\"",
+  "keyword": "And "
 });
 formatter.step({
-  "name": "user should see \"\u003ckey\u003e\" in the title",
+  "name": "user clicks on \"Login\" button",
+  "keyword": "And "
+});
+formatter.step({
+  "name": "user should see a message starts with \"\u003cmessage\u003e\"",
   "keyword": "Then "
-});
-formatter.step({
-  "name": "user should see \"\u003ckey\u003e\" in the url",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "user should see \"\u003ckey\u003e\" in the first heading",
-  "keyword": "And "
 });
 formatter.examples({
   "name": "",
@@ -41,65 +33,52 @@ formatter.examples({
   "rows": [
     {
       "cells": [
-        "key"
+        "username",
+        "password",
+        "message"
       ]
     },
     {
       "cells": [
-        "Elon Musk"
+        "",
+        "",
+        "Your username is invalid!"
       ]
     },
     {
       "cells": [
-        "Bill Gates"
+        "johndoe",
+        "abcd1234",
+        "Your username is invalid!"
       ]
     },
     {
       "cells": [
-        "Johny Depp"
+        "tomsmith",
+        "12345",
+        "Your password is invalid!"
       ]
     },
     {
       "cells": [
-        "Post Malone"
+        "tomsmith",
+        "SuperSecretPassword",
+        "Your password is invalid!"
       ]
     },
     {
       "cells": [
-        "Jack Harlow"
-      ]
-    },
-    {
-      "cells": [
-        "Lil Baby"
-      ]
-    },
-    {
-      "cells": [
-        "bob the builder"
-      ]
-    },
-    {
-      "cells": [
-        "Jennifer Lopez"
-      ]
-    },
-    {
-      "cells": [
-        "Robert downey jr"
+        "tomsmith",
+        "SuperSecretPassword!",
+        "You logged into a secure area!"
       ]
     }
   ]
 });
-formatter.scenario({
-  "name": "Validate Wiki Search",
+formatter.background({
+  "name": "",
   "description": "",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "name": "@Wiki"
-    }
-  ]
+  "keyword": "Background"
 });
 formatter.before({
   "status": "passed"
@@ -114,7 +93,7 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "user navigates to \"https://www.wikipedia.org/\"",
+  "name": "user navigates to \"http://the-internet.herokuapp.com/\"",
   "keyword": "Given "
 });
 formatter.match({
@@ -124,41 +103,51 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user searches for \"Elon Musk\" on Wikipedia",
+  "name": "user clicks on \"Form Authentication\" link",
   "keyword": "When "
 });
 formatter.match({
-  "location": "WikipediaSteps.userSearchesForOnWikipedia(String)"
+  "location": "HeroAppSteps.userClicksOnLink(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Validate form authentication page",
+  "description": "",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "name": "@Login"
+    }
+  ]
+});
+formatter.step({
+  "name": "user enters username as \"\" and password as \"\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "HeroAppSteps.user_enters_username_as_and_password_as(String,String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user should see \"Elon Musk\" in the title",
+  "name": "user clicks on \"Login\" button",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "HeroAppSteps.userClicksOnButton(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user should see a message starts with \"Your username is invalid!\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_title(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Elon Musk\" in the url",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_url(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Elon Musk\" in the first heading",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "WikipediaSteps.userShouldSeeInTheFirstHeading(String)"
+  "location": "HeroAppSteps.user_should_see_a_message_starts_with(String)"
 });
 formatter.result({
   "status": "passed"
@@ -166,15 +155,10 @@ formatter.result({
 formatter.after({
   "status": "passed"
 });
-formatter.scenario({
-  "name": "Validate Wiki Search",
+formatter.background({
+  "name": "",
   "description": "",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "name": "@Wiki"
-    }
-  ]
+  "keyword": "Background"
 });
 formatter.before({
   "status": "passed"
@@ -189,7 +173,7 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "user navigates to \"https://www.wikipedia.org/\"",
+  "name": "user navigates to \"http://the-internet.herokuapp.com/\"",
   "keyword": "Given "
 });
 formatter.match({
@@ -199,41 +183,51 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user searches for \"Bill Gates\" on Wikipedia",
+  "name": "user clicks on \"Form Authentication\" link",
   "keyword": "When "
 });
 formatter.match({
-  "location": "WikipediaSteps.userSearchesForOnWikipedia(String)"
+  "location": "HeroAppSteps.userClicksOnLink(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Validate form authentication page",
+  "description": "",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "name": "@Login"
+    }
+  ]
+});
+formatter.step({
+  "name": "user enters username as \"johndoe\" and password as \"abcd1234\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "HeroAppSteps.user_enters_username_as_and_password_as(String,String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user should see \"Bill Gates\" in the title",
+  "name": "user clicks on \"Login\" button",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "HeroAppSteps.userClicksOnButton(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user should see a message starts with \"Your username is invalid!\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_title(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Bill Gates\" in the url",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_url(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Bill Gates\" in the first heading",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "WikipediaSteps.userShouldSeeInTheFirstHeading(String)"
+  "location": "HeroAppSteps.user_should_see_a_message_starts_with(String)"
 });
 formatter.result({
   "status": "passed"
@@ -241,15 +235,10 @@ formatter.result({
 formatter.after({
   "status": "passed"
 });
-formatter.scenario({
-  "name": "Validate Wiki Search",
+formatter.background({
+  "name": "",
   "description": "",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "name": "@Wiki"
-    }
-  ]
+  "keyword": "Background"
 });
 formatter.before({
   "status": "passed"
@@ -264,7 +253,7 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "user navigates to \"https://www.wikipedia.org/\"",
+  "name": "user navigates to \"http://the-internet.herokuapp.com/\"",
   "keyword": "Given "
 });
 formatter.match({
@@ -274,118 +263,51 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user searches for \"Johny Depp\" on Wikipedia",
+  "name": "user clicks on \"Form Authentication\" link",
   "keyword": "When "
 });
 formatter.match({
-  "location": "WikipediaSteps.userSearchesForOnWikipedia(String)"
+  "location": "HeroAppSteps.userClicksOnLink(String)"
 });
 formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Johny Depp\" in the title",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_title(String)"
-});
-formatter.result({
-  "error_message": "java.lang.AssertionError\n\tat org.junit.Assert.fail(Assert.java:86)\n\tat org.junit.Assert.assertTrue(Assert.java:41)\n\tat org.junit.Assert.assertTrue(Assert.java:52)\n\tat steps.BaseSteps.user_should_see_in_the_title(BaseSteps.java:33)\n\tat ✽.user should see \"Johny Depp\" in the title(src/test/resources/features/wikipedia.feature:8)\n",
-  "status": "failed"
-});
-formatter.step({
-  "name": "user should see \"Johny Depp\" in the url",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_url(String)"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.step({
-  "name": "user should see \"Johny Depp\" in the first heading",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "WikipediaSteps.userShouldSeeInTheFirstHeading(String)"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.embedding("image/png", "embedded0.png");
-formatter.after({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "Validate Wiki Search",
+  "name": "Validate form authentication page",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@Wiki"
+      "name": "@Login"
     }
   ]
 });
-formatter.before({
-  "status": "passed"
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.before({
-  "status": "passed"
-});
 formatter.step({
-  "name": "user navigates to \"https://www.wikipedia.org/\"",
-  "keyword": "Given "
+  "name": "user enters username as \"tomsmith\" and password as \"12345\"",
+  "keyword": "And "
 });
 formatter.match({
-  "location": "BaseSteps.userNavigatesTo(String)"
+  "location": "HeroAppSteps.user_enters_username_as_and_password_as(String,String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user searches for \"Post Malone\" on Wikipedia",
-  "keyword": "When "
+  "name": "user clicks on \"Login\" button",
+  "keyword": "And "
 });
 formatter.match({
-  "location": "WikipediaSteps.userSearchesForOnWikipedia(String)"
+  "location": "HeroAppSteps.userClicksOnButton(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user should see \"Post Malone\" in the title",
+  "name": "user should see a message starts with \"Your password is invalid!\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_title(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Post Malone\" in the url",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_url(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Post Malone\" in the first heading",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "WikipediaSteps.userShouldSeeInTheFirstHeading(String)"
+  "location": "HeroAppSteps.user_should_see_a_message_starts_with(String)"
 });
 formatter.result({
   "status": "passed"
@@ -393,15 +315,10 @@ formatter.result({
 formatter.after({
   "status": "passed"
 });
-formatter.scenario({
-  "name": "Validate Wiki Search",
+formatter.background({
+  "name": "",
   "description": "",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "name": "@Wiki"
-    }
-  ]
+  "keyword": "Background"
 });
 formatter.before({
   "status": "passed"
@@ -416,7 +333,7 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "user navigates to \"https://www.wikipedia.org/\"",
+  "name": "user navigates to \"http://the-internet.herokuapp.com/\"",
   "keyword": "Given "
 });
 formatter.match({
@@ -426,41 +343,51 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user searches for \"Jack Harlow\" on Wikipedia",
+  "name": "user clicks on \"Form Authentication\" link",
   "keyword": "When "
 });
 formatter.match({
-  "location": "WikipediaSteps.userSearchesForOnWikipedia(String)"
+  "location": "HeroAppSteps.userClicksOnLink(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Validate form authentication page",
+  "description": "",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "name": "@Login"
+    }
+  ]
+});
+formatter.step({
+  "name": "user enters username as \"tomsmith\" and password as \"SuperSecretPassword\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "HeroAppSteps.user_enters_username_as_and_password_as(String,String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user should see \"Jack Harlow\" in the title",
+  "name": "user clicks on \"Login\" button",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "HeroAppSteps.userClicksOnButton(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user should see a message starts with \"Your password is invalid!\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_title(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Jack Harlow\" in the url",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_url(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Jack Harlow\" in the first heading",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "WikipediaSteps.userShouldSeeInTheFirstHeading(String)"
+  "location": "HeroAppSteps.user_should_see_a_message_starts_with(String)"
 });
 formatter.result({
   "status": "passed"
@@ -468,15 +395,10 @@ formatter.result({
 formatter.after({
   "status": "passed"
 });
-formatter.scenario({
-  "name": "Validate Wiki Search",
+formatter.background({
+  "name": "",
   "description": "",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "name": "@Wiki"
-    }
-  ]
+  "keyword": "Background"
 });
 formatter.before({
   "status": "passed"
@@ -491,7 +413,7 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "user navigates to \"https://www.wikipedia.org/\"",
+  "name": "user navigates to \"http://the-internet.herokuapp.com/\"",
   "keyword": "Given "
 });
 formatter.match({
@@ -501,274 +423,55 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user searches for \"Lil Baby\" on Wikipedia",
+  "name": "user clicks on \"Form Authentication\" link",
   "keyword": "When "
 });
 formatter.match({
-  "location": "WikipediaSteps.userSearchesForOnWikipedia(String)"
+  "location": "HeroAppSteps.userClicksOnLink(String)"
 });
 formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Lil Baby\" in the title",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_title(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Lil Baby\" in the url",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_url(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Lil Baby\" in the first heading",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "WikipediaSteps.userShouldSeeInTheFirstHeading(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.after({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "Validate Wiki Search",
+  "name": "Validate form authentication page",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@Wiki"
+      "name": "@Login"
     }
   ]
 });
-formatter.before({
-  "status": "passed"
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.before({
-  "status": "passed"
-});
 formatter.step({
-  "name": "user navigates to \"https://www.wikipedia.org/\"",
-  "keyword": "Given "
+  "name": "user enters username as \"tomsmith\" and password as \"SuperSecretPassword!\"",
+  "keyword": "And "
 });
 formatter.match({
-  "location": "BaseSteps.userNavigatesTo(String)"
+  "location": "HeroAppSteps.user_enters_username_as_and_password_as(String,String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user searches for \"bob the builder\" on Wikipedia",
-  "keyword": "When "
+  "name": "user clicks on \"Login\" button",
+  "keyword": "And "
 });
 formatter.match({
-  "location": "WikipediaSteps.userSearchesForOnWikipedia(String)"
+  "location": "HeroAppSteps.userClicksOnButton(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user should see \"bob the builder\" in the title",
+  "name": "user should see a message starts with \"You logged into a secure area!\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_title(String)"
-});
-formatter.result({
-  "error_message": "java.lang.AssertionError\n\tat org.junit.Assert.fail(Assert.java:86)\n\tat org.junit.Assert.assertTrue(Assert.java:41)\n\tat org.junit.Assert.assertTrue(Assert.java:52)\n\tat steps.BaseSteps.user_should_see_in_the_title(BaseSteps.java:33)\n\tat ✽.user should see \"bob the builder\" in the title(src/test/resources/features/wikipedia.feature:8)\n",
-  "status": "failed"
-});
-formatter.step({
-  "name": "user should see \"bob the builder\" in the url",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_url(String)"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.step({
-  "name": "user should see \"bob the builder\" in the first heading",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "WikipediaSteps.userShouldSeeInTheFirstHeading(String)"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.embedding("image/png", "embedded1.png");
-formatter.after({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "Validate Wiki Search",
-  "description": "",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "name": "@Wiki"
-    }
-  ]
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user navigates to \"https://www.wikipedia.org/\"",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "BaseSteps.userNavigatesTo(String)"
+  "location": "HeroAppSteps.user_should_see_a_message_starts_with(String)"
 });
 formatter.result({
   "status": "passed"
 });
-formatter.step({
-  "name": "user searches for \"Jennifer Lopez\" on Wikipedia",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "WikipediaSteps.userSearchesForOnWikipedia(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Jennifer Lopez\" in the title",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_title(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Jennifer Lopez\" in the url",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_url(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Jennifer Lopez\" in the first heading",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "WikipediaSteps.userShouldSeeInTheFirstHeading(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.after({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "Validate Wiki Search",
-  "description": "",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "name": "@Wiki"
-    }
-  ]
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user navigates to \"https://www.wikipedia.org/\"",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "BaseSteps.userNavigatesTo(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user searches for \"Robert downey jr\" on Wikipedia",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "WikipediaSteps.userSearchesForOnWikipedia(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see \"Robert downey jr\" in the title",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_title(String)"
-});
-formatter.result({
-  "error_message": "java.lang.AssertionError\n\tat org.junit.Assert.fail(Assert.java:86)\n\tat org.junit.Assert.assertTrue(Assert.java:41)\n\tat org.junit.Assert.assertTrue(Assert.java:52)\n\tat steps.BaseSteps.user_should_see_in_the_title(BaseSteps.java:33)\n\tat ✽.user should see \"Robert downey jr\" in the title(src/test/resources/features/wikipedia.feature:8)\n",
-  "status": "failed"
-});
-formatter.step({
-  "name": "user should see \"Robert downey jr\" in the url",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "BaseSteps.user_should_see_in_the_url(String)"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.step({
-  "name": "user should see \"Robert downey jr\" in the first heading",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "WikipediaSteps.userShouldSeeInTheFirstHeading(String)"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.embedding("image/png", "embedded2.png");
 formatter.after({
   "status": "passed"
 });

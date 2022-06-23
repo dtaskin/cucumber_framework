@@ -22,3 +22,9 @@ Feature: Wiki Search Functionality
 #      | Irina Shayk      |
 #      | Kobe Bryant      |
 #      | Piero Manzoni    |
+
+  @temp
+  Scenario: Validate Wikipedia main languages
+    Given user navigates to "https://www.wikipedia.org/"
+    Then user should see below languages around the logo
+      | English | 日本語 | Español | Русский | Deutsch | Français | Italiano | 中文 | Português | Polski |

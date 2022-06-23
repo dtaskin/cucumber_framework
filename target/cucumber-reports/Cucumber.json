@@ -3,23 +3,82 @@
     "line": 2,
     "elements": [
       {
-        "line": 4,
-        "name": "",
+        "before": [
+          {
+            "result": {
+              "duration": 3487897250,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.setup()"
+            }
+          },
+          {
+            "result": {
+              "duration": 26230708,
+              "status": "passed"
+            },
+            "match": {
+              "location": "EtsySteps.setup()"
+            }
+          },
+          {
+            "result": {
+              "duration": 16881208,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HeroAppSteps.setup()"
+            }
+          },
+          {
+            "result": {
+              "duration": 3269500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "WikipediaSteps.setup()"
+            }
+          },
+          {
+            "result": {
+              "duration": 969500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "GoogleSteps.setup()"
+            }
+          }
+        ],
+        "line": 27,
+        "name": "Validate Wikipedia main languages",
         "description": "",
-        "type": "background",
-        "keyword": "Background",
+        "id": "wiki-search-functionality;validate-wikipedia-main-languages",
+        "after": [
+          {
+            "result": {
+              "duration": 3122681250,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.teardown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 753417042,
+              "duration": 1304584584,
               "status": "passed"
             },
-            "line": 5,
-            "name": "user navigates to \"http://the-internet.herokuapp.com/\"",
+            "line": 28,
+            "name": "user navigates to \"https://www.wikipedia.org/\"",
             "match": {
               "arguments": [
                 {
-                  "val": "\"http://the-internet.herokuapp.com/\"",
+                  "val": "\"https://www.wikipedia.org/\"",
                   "offset": 18
                 }
               ],
@@ -29,823 +88,51 @@
           },
           {
             "result": {
-              "duration": 692838083,
+              "duration": 522563291,
               "status": "passed"
             },
-            "line": 6,
-            "name": "user clicks on \"Form Authentication\" link",
+            "line": 29,
+            "name": "user should see below languages around the logo",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"Form Authentication\"",
-                  "offset": 15
-                }
-              ],
-              "location": "HeroAppSteps.userClicksOnLink(String)"
+              "location": "WikipediaSteps.userShouldSeeBelowLanguagesAroundTheLogo(DataTable)"
             },
-            "keyword": "When "
-          }
-        ]
-      },
-      {
-        "before": [
-          {
-            "result": {
-              "duration": 1767688292,
-              "status": "passed"
-            },
-            "match": {
-              "location": "WikipediaSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 589250,
-              "status": "passed"
-            },
-            "match": {
-              "location": "GoogleSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 2532041,
-              "status": "passed"
-            },
-            "match": {
-              "location": "HeroAppSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 57666,
-              "status": "passed"
-            },
-            "match": {
-              "location": "BaseSteps.setup()"
-            }
-          }
-        ],
-        "line": 14,
-        "name": "Validate form authentication page",
-        "description": "",
-        "id": "hero-app-login-functionality;validate-form-authentication-page;;2",
-        "after": [
-          {
-            "result": {
-              "duration": 3112112458,
-              "status": "passed"
-            },
-            "match": {
-              "location": "Hooks.teardown(Scenario)"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario Outline",
-        "steps": [
-          {
-            "result": {
-              "duration": 137984875,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "user enters username as \"\" and password as \"\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"\"",
-                  "offset": 24
-                },
-                {
-                  "val": "\"\"",
-                  "offset": 43
-                }
-              ],
-              "location": "HeroAppSteps.user_enters_username_as_and_password_as(String,String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 314801209,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "user clicks on \"Login\" button",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Login\"",
-                  "offset": 15
-                }
-              ],
-              "location": "HeroAppSteps.userClicksOnButton(String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 41786125,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "user should see a message starts with \"Your username is invalid!\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Your username is invalid!\"",
-                  "offset": 38
-                }
-              ],
-              "location": "HeroAppSteps.user_should_see_a_message_starts_with(String)"
-            },
+            "rows": [
+              {
+                "cells": [
+                  "English",
+                  "日本語",
+                  "Español",
+                  "Русский",
+                  "Deutsch",
+                  "Français",
+                  "Italiano",
+                  "中文",
+                  "Português",
+                  "Polski"
+                ]
+              }
+            ],
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@Login"
-          }
-        ]
-      },
-      {
-        "line": 4,
-        "name": "",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 762239542,
-              "status": "passed"
-            },
-            "line": 5,
-            "name": "user navigates to \"http://the-internet.herokuapp.com/\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"http://the-internet.herokuapp.com/\"",
-                  "offset": 18
-                }
-              ],
-              "location": "BaseSteps.userNavigatesTo(String)"
-            },
-            "keyword": "Given "
+            "name": "@Regression"
           },
           {
-            "result": {
-              "duration": 689132542,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "user clicks on \"Form Authentication\" link",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Form Authentication\"",
-                  "offset": 15
-                }
-              ],
-              "location": "HeroAppSteps.userClicksOnLink(String)"
-            },
-            "keyword": "When "
-          }
-        ]
-      },
-      {
-        "before": [
-          {
-            "result": {
-              "duration": 1313409083,
-              "status": "passed"
-            },
-            "match": {
-              "location": "WikipediaSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 59000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "GoogleSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 194000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "HeroAppSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 8584,
-              "status": "passed"
-            },
-            "match": {
-              "location": "BaseSteps.setup()"
-            }
-          }
-        ],
-        "line": 15,
-        "name": "Validate form authentication page",
-        "description": "",
-        "id": "hero-app-login-functionality;validate-form-authentication-page;;3",
-        "after": [
-          {
-            "result": {
-              "duration": 3108940667,
-              "status": "passed"
-            },
-            "match": {
-              "location": "Hooks.teardown(Scenario)"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario Outline",
-        "steps": [
-          {
-            "result": {
-              "duration": 220839417,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "user enters username as \"johndoe\" and password as \"abcd1234\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"johndoe\"",
-                  "offset": 24
-                },
-                {
-                  "val": "\"abcd1234\"",
-                  "offset": 50
-                }
-              ],
-              "location": "HeroAppSteps.user_enters_username_as_and_password_as(String,String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 266428292,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "user clicks on \"Login\" button",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Login\"",
-                  "offset": 15
-                }
-              ],
-              "location": "HeroAppSteps.userClicksOnButton(String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 44128209,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "user should see a message starts with \"Your username is invalid!\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Your username is invalid!\"",
-                  "offset": 38
-                }
-              ],
-              "location": "HeroAppSteps.user_should_see_a_message_starts_with(String)"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@Login"
-          }
-        ]
-      },
-      {
-        "line": 4,
-        "name": "",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 802733709,
-              "status": "passed"
-            },
-            "line": 5,
-            "name": "user navigates to \"http://the-internet.herokuapp.com/\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"http://the-internet.herokuapp.com/\"",
-                  "offset": 18
-                }
-              ],
-              "location": "BaseSteps.userNavigatesTo(String)"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 681548792,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "user clicks on \"Form Authentication\" link",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Form Authentication\"",
-                  "offset": 15
-                }
-              ],
-              "location": "HeroAppSteps.userClicksOnLink(String)"
-            },
-            "keyword": "When "
-          }
-        ]
-      },
-      {
-        "before": [
-          {
-            "result": {
-              "duration": 1290543666,
-              "status": "passed"
-            },
-            "match": {
-              "location": "WikipediaSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 65959,
-              "status": "passed"
-            },
-            "match": {
-              "location": "GoogleSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 198792,
-              "status": "passed"
-            },
-            "match": {
-              "location": "HeroAppSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 8625,
-              "status": "passed"
-            },
-            "match": {
-              "location": "BaseSteps.setup()"
-            }
-          }
-        ],
-        "line": 16,
-        "name": "Validate form authentication page",
-        "description": "",
-        "id": "hero-app-login-functionality;validate-form-authentication-page;;4",
-        "after": [
-          {
-            "result": {
-              "duration": 3113545041,
-              "status": "passed"
-            },
-            "match": {
-              "location": "Hooks.teardown(Scenario)"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario Outline",
-        "steps": [
-          {
-            "result": {
-              "duration": 228169875,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "user enters username as \"tomsmith\" and password as \"12345\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"tomsmith\"",
-                  "offset": 24
-                },
-                {
-                  "val": "\"12345\"",
-                  "offset": 51
-                }
-              ],
-              "location": "HeroAppSteps.user_enters_username_as_and_password_as(String,String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 261808708,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "user clicks on \"Login\" button",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Login\"",
-                  "offset": 15
-                }
-              ],
-              "location": "HeroAppSteps.userClicksOnButton(String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 55479166,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "user should see a message starts with \"Your password is invalid!\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Your password is invalid!\"",
-                  "offset": 38
-                }
-              ],
-              "location": "HeroAppSteps.user_should_see_a_message_starts_with(String)"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@Login"
-          }
-        ]
-      },
-      {
-        "line": 4,
-        "name": "",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 756305125,
-              "status": "passed"
-            },
-            "line": 5,
-            "name": "user navigates to \"http://the-internet.herokuapp.com/\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"http://the-internet.herokuapp.com/\"",
-                  "offset": 18
-                }
-              ],
-              "location": "BaseSteps.userNavigatesTo(String)"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 695918292,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "user clicks on \"Form Authentication\" link",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Form Authentication\"",
-                  "offset": 15
-                }
-              ],
-              "location": "HeroAppSteps.userClicksOnLink(String)"
-            },
-            "keyword": "When "
-          }
-        ]
-      },
-      {
-        "before": [
-          {
-            "result": {
-              "duration": 1324853083,
-              "status": "passed"
-            },
-            "match": {
-              "location": "WikipediaSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 49958,
-              "status": "passed"
-            },
-            "match": {
-              "location": "GoogleSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 232125,
-              "status": "passed"
-            },
-            "match": {
-              "location": "HeroAppSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 8000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "BaseSteps.setup()"
-            }
-          }
-        ],
-        "line": 17,
-        "name": "Validate form authentication page",
-        "description": "",
-        "id": "hero-app-login-functionality;validate-form-authentication-page;;5",
-        "after": [
-          {
-            "result": {
-              "duration": 3111323292,
-              "status": "passed"
-            },
-            "match": {
-              "location": "Hooks.teardown(Scenario)"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario Outline",
-        "steps": [
-          {
-            "result": {
-              "duration": 227716708,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "user enters username as \"tomsmith\" and password as \"SuperSecretPassword\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"tomsmith\"",
-                  "offset": 24
-                },
-                {
-                  "val": "\"SuperSecretPassword\"",
-                  "offset": 51
-                }
-              ],
-              "location": "HeroAppSteps.user_enters_username_as_and_password_as(String,String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 270189292,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "user clicks on \"Login\" button",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Login\"",
-                  "offset": 15
-                }
-              ],
-              "location": "HeroAppSteps.userClicksOnButton(String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 46163167,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "user should see a message starts with \"Your password is invalid!\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Your password is invalid!\"",
-                  "offset": 38
-                }
-              ],
-              "location": "HeroAppSteps.user_should_see_a_message_starts_with(String)"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@Login"
-          }
-        ]
-      },
-      {
-        "line": 4,
-        "name": "",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 899760959,
-              "status": "passed"
-            },
-            "line": 5,
-            "name": "user navigates to \"http://the-internet.herokuapp.com/\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"http://the-internet.herokuapp.com/\"",
-                  "offset": 18
-                }
-              ],
-              "location": "BaseSteps.userNavigatesTo(String)"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 762030083,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "user clicks on \"Form Authentication\" link",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Form Authentication\"",
-                  "offset": 15
-                }
-              ],
-              "location": "HeroAppSteps.userClicksOnLink(String)"
-            },
-            "keyword": "When "
-          }
-        ]
-      },
-      {
-        "before": [
-          {
-            "result": {
-              "duration": 1279498417,
-              "status": "passed"
-            },
-            "match": {
-              "location": "WikipediaSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 50708,
-              "status": "passed"
-            },
-            "match": {
-              "location": "GoogleSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 194459,
-              "status": "passed"
-            },
-            "match": {
-              "location": "HeroAppSteps.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 8250,
-              "status": "passed"
-            },
-            "match": {
-              "location": "BaseSteps.setup()"
-            }
-          }
-        ],
-        "line": 18,
-        "name": "Validate form authentication page",
-        "description": "",
-        "id": "hero-app-login-functionality;validate-form-authentication-page;;6",
-        "after": [
-          {
-            "result": {
-              "duration": 3108390917,
-              "status": "passed"
-            },
-            "match": {
-              "location": "Hooks.teardown(Scenario)"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario Outline",
-        "steps": [
-          {
-            "result": {
-              "duration": 259057833,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "user enters username as \"tomsmith\" and password as \"SuperSecretPassword!\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"tomsmith\"",
-                  "offset": 24
-                },
-                {
-                  "val": "\"SuperSecretPassword!\"",
-                  "offset": 51
-                }
-              ],
-              "location": "HeroAppSteps.user_enters_username_as_and_password_as(String,String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 291545333,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "user clicks on \"Login\" button",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Login\"",
-                  "offset": 15
-                }
-              ],
-              "location": "HeroAppSteps.userClicksOnButton(String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 48313208,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "user should see a message starts with \"You logged into a secure area!\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"You logged into a secure area!\"",
-                  "offset": 38
-                }
-              ],
-              "location": "HeroAppSteps.user_should_see_a_message_starts_with(String)"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@Login"
+            "name": "@temp"
           }
         ]
       }
     ],
-    "name": "Hero App Login Functionality",
+    "name": "Wiki Search Functionality",
     "description": "",
-    "id": "hero-app-login-functionality",
+    "id": "wiki-search-functionality",
     "keyword": "Feature",
-    "uri": "src/test/resources/features/heroAppLogin.feature",
+    "uri": "src/test/resources/features/wikipedia.feature",
     "tags": [
       {
-        "name": "@Login",
+        "name": "@Regression",
         "type": "Tag",
         "location": {
           "line": 1,
